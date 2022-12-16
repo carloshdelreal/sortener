@@ -3,7 +3,7 @@ class CreateUrls < ActiveRecord::Migration[6.0]
     create_table :urls do |t|
       t.string :title
       t.string :url, unique: true
-      t.string :source
+      t.string :source, unique: true
       t.timestamps
     end
   end

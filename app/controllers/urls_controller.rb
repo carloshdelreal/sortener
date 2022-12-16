@@ -1,5 +1,9 @@
 class UrlsController < ApplicationController
   def create
+    @url = Url.find_by(url_params)
+
+    return render json: @url if @url
+
     @url = Url.new(url_params)
     
     if @url.save
