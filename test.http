@@ -1,0 +1,21 @@
+@host = http://localhost:3000
+
+### create url
+POST {{host}}/urls
+Content-Type: application/json
+
+{
+
+  "title": "my first url",
+  "source": "http://google.com" 
+
+}
+
+### get urls
+GET {{host}}/urls
+
+### show url
+GET {{host}}/urls/1
+
+### show url
+GET {{host}}/2fcf4173
