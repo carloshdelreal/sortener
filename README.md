@@ -1,24 +1,19 @@
-# README
+# Sortener
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started
 
-Things you may want to cover:
+sortened is an api to create short urls.
 
-* Ruby version
+### How to run the project
 
-* System dependencies
+to run this project it is assumed that you already have installed ruby and rails in your system as well as docker to run redis
 
-* Configuration
+- clone this repo
+- `bundle install`
+- `docker compose up`, this will create a docker container that has oppened connections to a postgresdb and a redis
+- run `rails s` on another terminal
+- run `sidekiq` on another terminal
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
