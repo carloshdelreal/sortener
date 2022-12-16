@@ -7,17 +7,17 @@ class Crawl < ApplicationJob
   queue_as :default
 
   def perform(url)
-    unparsed_html = nil
+    response = nil
 
     begin
-      unparsed_html ||= HTTParty.get(url.source)
+      response ||= HTTParty.get(url.source)
     rescue
       return
     end
 
-    return if unparsed_html.code != 200
+    return if response.code != 200
     
-    page = Nokogiri::HTML(unparsed_html)
+    page = Nokogiri::HTML(response.body)
     
     url.title = page.at_css('title').text
     url.save
