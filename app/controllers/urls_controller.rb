@@ -10,7 +10,11 @@ class UrlsController < ApplicationController
   end
 
   def index
-    render json: Url.all
+    urls = Url.left_joins(:visits)
+    .group(:id)
+    .order('COUNT(visits.id) DESC')
+    .limit(100)
+    render json: urls, include: [:visits]
   end
 
   def show
