@@ -14,7 +14,7 @@ to run this project it is assumed that you already have installed ruby and rails
 - run `rails s` on another terminal
 - run `sidekiq` on another terminal
 
-[View tutorial video]("https://www.loom.com/embed/577a18ba560149deade41d93e59dd1ad")
+[View tutorial video](https://www.loom.com/embed/577a18ba560149deade41d93e59dd1ad)
 
 
 
