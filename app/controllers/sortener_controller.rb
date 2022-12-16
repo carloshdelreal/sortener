@@ -1,6 +1,7 @@
 class SortenerController < ApplicationController
   def sortener
     @url = Url.find_by(url: params[:sorted_url])
+    @url.visits.push(Visit.new)
 
     if @url
       redirect_to @url.source
