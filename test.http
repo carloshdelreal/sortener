@@ -5,10 +5,7 @@ POST {{host}}/urls
 Content-Type: application/json
 
 {
-
-  "title": "my first url",
-  "source": "http://google.com" 
-
+  "source": "http://stackoverflow.com" 
 }
 
 ### get urls
@@ -18,4 +15,4 @@ GET {{host}}/urls
 GET {{host}}/urls/1
 
 ### show url
-GET {{host}}/2fcf4173
+GET {{host}}/acc5ea6799

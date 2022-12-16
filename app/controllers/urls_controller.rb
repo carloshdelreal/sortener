@@ -3,6 +3,7 @@ class UrlsController < ApplicationController
     @url = Url.new(url_params)
     
     if @url.save
+      Crawl.perform_later(@url)
       render json: @url
     else
       render json: { :errors => @url.errors.full_messages }
@@ -11,10 +12,13 @@ class UrlsController < ApplicationController
 
   def index
     urls = Url.left_joins(:visits)
+    .select(
+        'urls.*, COUNT(visits.id) AS count'
+      )
     .group(:id)
     .order('COUNT(visits.id) DESC')
     .limit(100)
-    render json: urls, include: [:visits]
+    render json: urls
   end
 
   def show
@@ -30,6 +34,6 @@ class UrlsController < ApplicationController
   private
 
   def url_params
-    params.require(:url).permit(:title, :source)
+    params.require(:url).permit(:source)
   end
 end
