@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_12_16_125407) do
     t.string "title"
     t.string "url"
     t.string "source"
-    t.integer "counter"
+    t.integer "counter", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
